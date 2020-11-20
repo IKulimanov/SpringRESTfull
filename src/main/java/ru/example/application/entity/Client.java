@@ -20,13 +20,21 @@ public class Client {
     @Column(name = "PASSWORD")
     private String password;
 
+
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "CLIENT_ROLE",
             joinColumns = @JoinColumn(name = "NAME_CLIENT"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
     private List<Role> roles;
 
+    public List<Role> getRoles() {
+        return roles;
+    }
 
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
 
     public String getNameClient() {
