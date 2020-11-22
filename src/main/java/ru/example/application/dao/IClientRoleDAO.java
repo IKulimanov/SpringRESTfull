@@ -1,18 +1,15 @@
-package ru.example.application.service;
+package ru.example.application.dao;
 
 import ru.example.application.entity.Client;
-import ru.example.application.err.ErrorClient;
 
 import java.util.List;
 
-public interface IClientRoleService {
-
-
+public interface IClientRoleDAO {
     /**
      * Получение всех пользователей
      * @return Список клиентов
      */
-    List<Client> readAll();
+    List<Client> findAllClient();
 
     /**
      * Получение пользователя с ролью по логину
@@ -25,20 +22,19 @@ public interface IClientRoleService {
      * Добавление пользователя и роль
      * @param client пользователь с ролью
      */
-    List<ErrorClient> addClient(Client client);
+    boolean addClient(Client client);
 
     /**
      * Редактирование пользователя и изменение его ролей
      * @param client пользователь с ролью
      * @return
      */
-    boolean update(Client client);
+    boolean updateClient(Client client);
 
     /**
      * Удаление пользователя по логину
      * @param loginClient логин пользователя
      * @return
      */
-    boolean delete(String loginClient);
-
+    boolean removeClient(String loginClient);
 }
